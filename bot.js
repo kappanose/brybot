@@ -1,6 +1,8 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
 
+var lastDate = new Date();
+
 // This is your client. Some people call it `bot`, some people call it `self`,
 // some might call it `cootchie`. Either way, when you see `client.something`, or `bot.something`,
 // this is what we're refering to. Your client.
@@ -59,6 +61,7 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+
   if(command === "eat") {
     const m = await message.channel.send("```\n   BRY   " + args[0] + "\n   C  \\o/\n```");
     await sleep(500);
@@ -74,18 +77,30 @@ client.on("message", async message => {
     await sleep(500);
     food++;
     m.edit("```\n     BRY " + "burp..." + "\n         C\nBry has eaten " + food + " times.``` ");
+    lastDate = newDate();
   }
+
+  if(command === "is" || command === "are" || command === "will" || command === "can" || command === "should" || command === "would" || command === "am" || command === "do" || command === "does") {
+    if (Math.random() > 0.5) {
+      message.channel.send("no");
+    } else {
+      message.channel.send("yes");
+    }
+  }
+
   if(command === "siton") {
-    const m = await message.channel.send("```Bry sits on " + args[0] + "\n C\n\n\n\\o/```");
+    const m = await message.channel.send("```Bry sits on " + args[0] + "\n C\n\n\n\\o/ - " + args[0]"```");
     await sleep(500);
-    m.edit("```Bry sits on " + args[0] + "\n\n C\n\n\\o/```");
+    m.edit("```Bry sits on " + args[0] + "\n\n C\n\n\\o/ - " + args[0] + "```");
     await sleep(500);
-    m.edit("```Bry sits on " + args[0] + "\n\n\n C\n\\o/```");
+    m.edit("```Bry sits on " + args[0] + "\n\n\n C\n\\o/ - " + args[0] + "```");
     await sleep(500);
     m.edit("```Bry sits on " + args[0] + "\n\n\n\n\\C/ - oof```");
     await sleep(500);
   }
   // Let's go with a few common example commands! Feel free to delete or change those.
+
+
 
   if(command === "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
