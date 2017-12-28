@@ -6,6 +6,10 @@ const Discord = require("discord.js");
 // this is what we're refering to. Your client.
 const client = new Discord.Client();
 
+function sleep(millis) {
+    return new Promise(resolve => setTimeout(resolve, millis));
+}
+
 var food = 0;
 
 // Here we load the config.json file that contains our token and our prefix values.
@@ -55,7 +59,27 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
+  if(command === "eat") {
+    const m = await message.channel.send("```\nBRY     " + args[0] + "\nC     \\o/\n```");
+    await sleep(200);
+    m.edit("```\n BRY     " + args[0] + "\n c    -o-\n```");
+    await sleep(200);
+    m.edit("```\n  BRY    " + args[0] + "\n  c   \\o/\n```");
+    await sleep(200);
+    m.edit("```\n   BRY   " + args[0] + "\n   C  -o-\n```");
+    await sleep(200);
+    m.edit("```\n    BRY  " + args[0] + "\n    c \\o/\n```");
+    await sleep(200);
+    m.edit("```\n     BRY " + args[0] + "\n     C-o-\n```");
+    await sleep(200);
+    m.edit("```\n     BRY " + args[0] + "\n      Co-\n```");
+    await sleep(200);
+    m.edit("```\n     BRY " + args[0] + "\n       c-\n```");
+    await sleep(200);
+    m.edit("```\n     BRY " + args[0] + "\n        C\n```");
+    await sleep(200);
+    m.edit("```\n     BRY " + "burp..." + "\n         C\n```");
+  }
   // Let's go with a few common example commands! Feel free to delete or change those.
   if(command === "feed") {
     food++;
