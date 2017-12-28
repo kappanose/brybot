@@ -70,13 +70,13 @@ client.on("message", async message => {
     await sleep(200);
     m.edit("```\n    BRY  " + args[0] + "\n    c \\o/\n```");
     await sleep(200);
-    m.edit("```\n     BRY " + args[0] + "\n     C-o-\n```");
+    m.edit("```\n     BRY " + "\n     C-o-\n```");
     await sleep(200);
-    m.edit("```\n     BRY " + args[0] + "\n      Co-\n```");
+    m.edit("```\n     BRY " + "\n      Co-\n```");
     await sleep(200);
-    m.edit("```\n     BRY " + args[0] + "\n       c-\n```");
+    m.edit("```\n     BRY " + "\n       c-\n```");
     await sleep(200);
-    m.edit("```\n     BRY " + args[0] + "\n        C\n```");
+    m.edit("```\n     BRY " + "\n        C\n```");
     await sleep(200);
     m.edit("```\n     BRY " + "burp..." + "\n         C\n```");
   }
