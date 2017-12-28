@@ -39,9 +39,9 @@ client.on("message", async message => {
   // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
 
-  if(message.content.toLowerCase().includes("chun")) {
-    message.channel.send("Bry disapproves of your foul language.");
-    return;
+
+  if(message.content.toLowerCase().includes("boris") || message.content.toLowerCase().includes("chun")) {
+    message.channel.send("Bry does not condone that foul language on his good Bryrish server.")
   }
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
