@@ -60,7 +60,7 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   if(command === "eat") {
-    const m = await message.channel.send("```\nBRY     " + args[0] + "\nC     \\o/\n```");
+    const m = await message.channel.send("```\n   BRY   " + args[0] + "\n   C  \\o/\n```");
     await sleep(500);
     m.edit("```\n    BRY  " + args[0] + "\n    c \\o/\n```");
     await sleep(500);
