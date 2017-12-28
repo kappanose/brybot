@@ -2,7 +2,7 @@
   "name": "brybot",
   "version": "1.0.0",
   "description": "Bry",
-  "main": "app.js",
+  "main": "bot.js",
   "author": "Bryrish Legend",
   "dependencies": {
     "discord.js": "^11.2.1"
