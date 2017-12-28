@@ -76,13 +76,13 @@ client.on("message", async message => {
     m.edit("```\n     BRY " + "burp..." + "\n         C\nBry has eaten " + food + " times.``` ");
   }
   if(command === "siton") {
-    m.edit("```Bry sits on " + args[0]"\n C\n\n\n\\o/```");
+    m.edit("```Bry sits on " + args[0] + "\n C\n\n\n\\o/```");
     await sleep(500);
-    m.edit("```Bry sits on " + args[0]"\n\n C\n\n\\o/```");
+    m.edit("```Bry sits on " + args[0] + "\n\n C\n\n\\o/```");
     await sleep(500);
-    m.edit("```Bry sits on " + args[0]"\n\n\n C\n\\o/```");
+    m.edit("```Bry sits on " + args[0] + "\n\n\n C\n\\o/```");
     await sleep(500);
-    m.edit("```Bry sits on " + args[0]"\n\n\n\n\\C/ - oof```");
+    m.edit("```Bry sits on " + args[0] + "\n\n\n\n\\C/ - oof```");
     await sleep(500);
   }
   // Let's go with a few common example commands! Feel free to delete or change those.
