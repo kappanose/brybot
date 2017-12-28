@@ -4,5 +4,7 @@
   "description": "Bry",
   "main": "app.js",
   "author": "Bryrish Legend",
-  "dependencies": {}
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  }
 }
