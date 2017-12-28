@@ -6,6 +6,8 @@ const Discord = require("discord.js");
 // this is what we're refering to. Your client.
 const client = new Discord.Client();
 
+var food = 0;
+
 // Here we load the config.json file that contains our token and our prefix values.
 const config = require("./config.json");
 // config.token contains the bot's token
@@ -55,6 +57,12 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 
   // Let's go with a few common example commands! Feel free to delete or change those.
+  if(command === "feed") {
+    food++;
+    message.channel.send("Bry is grateful for your food.  He has now been fed " + food + " times.");
+  }
+
+  if(command ===)
 
   if(command === "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
