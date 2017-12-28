@@ -61,19 +61,19 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
   if(command === "eat") {
     const m = await message.channel.send("```\nBRY     " + args[0] + "\nC     \\o/\n```");
-    await sleep(200);
+    await sleep(500);
     m.edit("```\n   BRY   " + args[0] + "\n   C  -o-\n```");
-    await sleep(200);
+    await sleep(500);
     m.edit("```\n    BRY  " + args[0] + "\n    c \\o/\n```");
-    await sleep(200);
+    await sleep(500);
     m.edit("```\n     BRY " + "\n     C\\o/\n```");
-    await sleep(200);
+    await sleep(500);
     m.edit("```\n     BRY " + "\n      Co/\n```");
-    await sleep(200);
+    await sleep(500);
     m.edit("```\n     BRY " + "\n       c/\n```");
-    await sleep(200);
+    await sleep(500);
     m.edit("```\n     BRY " + "\n        C\n```");
-    await sleep(200);
+    await sleep(500);
     m.edit("```\n     BRY " + "burp..." + "\n         C\n```");
   }
   // Let's go with a few common example commands! Feel free to delete or change those.
