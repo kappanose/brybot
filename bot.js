@@ -62,8 +62,6 @@ client.on("message", async message => {
     message.channel.send("Bry is grateful for your food.  He has now been fed " + food + " times.");
   }
 
-  if(command ===)
-
   if(command === "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
