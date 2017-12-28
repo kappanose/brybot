@@ -89,7 +89,7 @@ client.on("message", async message => {
   }
 
   if(command === "siton") {
-    const m = await message.channel.send("```Bry sits on " + args[0] + "\n C\n\n\n\\o/ - " + args[0]"```");
+    const m = await message.channel.send("```Bry sits on " + args[0] + "\n C\n\n\n\\o/ - " + args[0] + "```");
     await sleep(500);
     m.edit("```Bry sits on " + args[0] + "\n\n C\n\n\\o/ - " + args[0] + "```");
     await sleep(500);
