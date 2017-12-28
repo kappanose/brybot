@@ -1,0 +1,8 @@
+{
+  "name": "brybot",
+  "version": "1.0.0",
+  "description": "Bry",
+  "main": "app.js",
+  "author": "Bryrish Legend",
+  "dependencies": {}
+}
