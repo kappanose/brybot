@@ -74,13 +74,10 @@ client.on("message", async message => {
     await sleep(500);
     m.edit("```\n     BRY " + "\n        C\n```");
     await sleep(500);
-    m.edit("```\n     BRY " + "burp..." + "\n         C\n```");
+    food++;
+    m.edit("```\n     BRY " + "burp..." + "\n         C\nBry has eaten " + food + "times.``` ");
   }
   // Let's go with a few common example commands! Feel free to delete or change those.
-  if(command === "feed") {
-    food++;
-    message.channel.send("Bry is grateful for your food.  He has now been fed " + food + " times.");
-  }
 
   if(command === "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
