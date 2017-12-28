@@ -62,19 +62,15 @@ client.on("message", async message => {
   if(command === "eat") {
     const m = await message.channel.send("```\nBRY     " + args[0] + "\nC     \\o/\n```");
     await sleep(200);
-    m.edit("```\n BRY     " + args[0] + "\n c    -o-\n```");
-    await sleep(200);
-    m.edit("```\n  BRY    " + args[0] + "\n  c   \\o/\n```");
-    await sleep(200);
     m.edit("```\n   BRY   " + args[0] + "\n   C  -o-\n```");
     await sleep(200);
     m.edit("```\n    BRY  " + args[0] + "\n    c \\o/\n```");
     await sleep(200);
-    m.edit("```\n     BRY " + "\n     C-o-\n```");
+    m.edit("```\n     BRY " + "\n     C\\o/\n```");
     await sleep(200);
-    m.edit("```\n     BRY " + "\n      Co-\n```");
+    m.edit("```\n     BRY " + "\n      Co/\n```");
     await sleep(200);
-    m.edit("```\n     BRY " + "\n       c-\n```");
+    m.edit("```\n     BRY " + "\n       c/\n```");
     await sleep(200);
     m.edit("```\n     BRY " + "\n        C\n```");
     await sleep(200);
