@@ -62,8 +62,6 @@ client.on("message", async message => {
   if(command === "eat") {
     const m = await message.channel.send("```\nBRY     " + args[0] + "\nC     \\o/\n```");
     await sleep(500);
-    m.edit("```\n   BRY   " + args[0] + "\n   C  -o-\n```");
-    await sleep(500);
     m.edit("```\n    BRY  " + args[0] + "\n    c \\o/\n```");
     await sleep(500);
     m.edit("```\n     BRY " + "\n     C\\o/\n```");
@@ -75,7 +73,7 @@ client.on("message", async message => {
     m.edit("```\n     BRY " + "\n        C\n```");
     await sleep(500);
     food++;
-    m.edit("```\n     BRY " + "burp..." + "\n         C\nBry has eaten " + food + "times.``` ");
+    m.edit("```\n     BRY " + "burp..." + "\n         C\nBry has eaten " + food + " times.``` ");
   }
   // Let's go with a few common example commands! Feel free to delete or change those.
 
