@@ -1,6 +1,6 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-const words = ["phat", "no1 cares", "idk", "u", "hax", "majik", "phatrabbits"];
+const words = ["phat", "no1 cares", "idk", "u", "hax", "majik", "phatrabbits", "chicken hugget"];
 var lastDate = new Date();
 
 // This is your client. Some people call it `bot`, some people call it `self`,
@@ -165,6 +165,11 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
+
+  if(command === "die") {
+    message.channel.send("no");
+  }
+  
 });
 
 client.login(config.token);
