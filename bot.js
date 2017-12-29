@@ -1,6 +1,6 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-
+const words = ["phat", "no1 cares", "idk", "u", "hax", "majik", "phatrabbits"];
 var lastDate = new Date();
 
 // This is your client. Some people call it `bot`, some people call it `self`,
@@ -86,6 +86,10 @@ client.on("message", async message => {
     } else {
       message.channel.send("yes");
     }
+  }
+
+  if(command === "what" || command === "who" || command === "how" || command === "which" || command === "why") {
+    message.channel.send(words[parseInt(Math.random() * words.length)]);
   }
 
   if(command === "siton") {
