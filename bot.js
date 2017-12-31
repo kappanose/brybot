@@ -48,7 +48,7 @@ client.on("message", async message => {
   if(message.author.bot) return;
 
 
-  if(message.content.toLowerCase().includes("boris") || message.content.toLowerCase().includes("chun")) {
+  if(message.content.toLowerCase().includes("schist") || message.content.toLowerCase().includes("heck") || message.content.toLowerCase().includes("beach") || message.content.toLowerCase().includes("feck")) {
     message.channel.send("Bry does not condone that foul language on his good Bryrish server.")
   }
   // Also good practice to ignore any message that does not start with our prefix,
@@ -169,7 +169,7 @@ client.on("message", async message => {
   if(command === "die") {
     message.channel.send("no");
   }
-  
+
 });
 
 client.login(config.token);
