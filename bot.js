@@ -47,8 +47,13 @@ client.on("message", async message => {
   // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
 
+  if(message.author.contains("#6046")) {
+    message.channel.send("no1 likes john");
+    return;
+  }
 
-  if(message.content.toLowerCase().includes("lian") || message.content.toLowerCase().includes("liar") || message.content.toLowerCase().includes("john") || message.content.toLowerCase().includes("korsunsky") || message.content.toLowerCase().includes("physics") || message.content.toLowerCase().includes("sausage") || message.content.toLowerCase().includes("friction") || message.content.toLowerCase().includes("schist") || message.content.toLowerCase().includes("heck") || message.content.toLowerCase().includes("beach") || message.content.toLowerCase().includes("feck")) {
+  if(message.content.toLowerCase().includes("lian") || message.content.toLowerCase().includes("liar") || message.content.toLowerCase().includes("john") || message.content.toLowerCase().includes("korsunsky") || message.content.toLowerCase().includes("physics") || message.content.toLowerCase().includes("sausage")
+    || message.content.toLowerCase().includes("friction") || message.content.toLowerCase().includes("schist") || message.content.toLowerCase().includes("heck") || message.content.toLowerCase().includes("beach") || message.content.toLowerCase().includes("feck")) {
     message.channel.send("Bry does not condone that foul language on his good Bryrish server.")
   }
   // Also good practice to ignore any message that does not start with our prefix,
