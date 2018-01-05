@@ -1,8 +1,5 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-const words = ["phat","no1 cares","idk","u","hax","majik","phatrabbits","chicken hugget"];
-const censors = ["lian","liar","john","korsunsky","physics","sausage","friction","schist","heck","beach","feck"];
-var lastDate = new Date();
 
 // This is your client. Some people call it `bot`, some people call it `self`,
 // some might call it `cootchie`. Either way, when you see `client.something`, or `bot.something`,
@@ -42,6 +39,8 @@ client.on("guildDelete", guild => {
 
 
 client.on("message", async message => {
+
+  if(message.channel.name.includes(config.nochannel) return;
   // This event will run on every single message received, from any channel or DM.
 
   // It's good practice to ignore other bots. This also makes your bot ignore itself
@@ -53,12 +52,9 @@ client.on("message", async message => {
   args = message.content.split("/ ");
   args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 
-  for(var i = 0; i < args.length; i++) {
-    for(var j = 0; j < censors.length; j++) {
-      if(args[i].toLowerCase == censors[j]) {
-        message.channel.send("Bry does not condone that foul language on his good Bryrish server.");
-        return;
-      }
+  for(var i = 0; i < config.censors.length; i++) {
+    if(args.indexOf(config.censors[i]) !== 0) {
+      message.channel.send("Bry does not condone this foul language on his good Bryrish server.");
     }
   }
 
@@ -106,7 +102,7 @@ client.on("message", async message => {
   }
 
   if(command === "what" || command === "who" || command === "how" || command === "which" || command === "why") {
-    message.channel.send(words[parseInt(Math.random() * words.length)]);
+    message.channel.send(config.words[parseInt(Math.random() * config.words.length)]);
   }
 
   if(command === "siton") {
@@ -120,14 +116,6 @@ client.on("message", async message => {
     await sleep(500);
   }
   // Let's go with a few common example commands! Feel free to delete or change those.
-
-
-
-  if(command === "ping") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Our heavenly lord has ponged.");
-  }
 
   if(command === "say") {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use.
