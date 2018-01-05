@@ -47,10 +47,6 @@ client.on("message", async message => {
   // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
 
-  if(message.author.username.includes("#6046")) {
-    message.channel.send("no1 likes john");
-    return;
-  }
 
   if(message.content.toLowerCase().includes("lian") || message.content.toLowerCase().includes("liar") || message.content.toLowerCase().includes("john") || message.content.toLowerCase().includes("korsunsky") || message.content.toLowerCase().includes("physics") || message.content.toLowerCase().includes("sausage")
     || message.content.toLowerCase().includes("friction") || message.content.toLowerCase().includes("schist") || message.content.toLowerCase().includes("heck") || message.content.toLowerCase().includes("beach") || message.content.toLowerCase().includes("feck")) {
@@ -60,6 +56,10 @@ client.on("message", async message => {
   // which is set in the configuration file.
   if(message.content.substring(0, config.prefix.length) !== config.prefix) return;
 
+  if(message.author.username.includes("#6046")) {
+    message.channel.send("no1 likes john");
+    return;
+  }
   // Here we separate our "command" name, and our "arguments" for the command.
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
   // command = say
