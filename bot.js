@@ -1,6 +1,7 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-const words = ["phat", "no1 cares", "idk", "u", "hax", "majik", "phatrabbits", "chicken hugget"];
+const words = ["phat","no1 cares","idk","u","hax","majik","phatrabbits","chicken hugget"];
+const censors = ["lian","liar","john","korsunsky","physics","sausage","friction","schist","heck","beach","feck"];
 var lastDate = new Date();
 
 // This is your client. Some people call it `bot`, some people call it `self`,
@@ -9,7 +10,7 @@ var lastDate = new Date();
 const client = new Discord.Client();
 
 function sleep(millis) {
-    return new Promise(resolve => setTimeout(resolve, millis));
+  return new Promise(resolve => setTimeout(resolve, millis));
 }
 
 var food = 0;
@@ -47,13 +48,21 @@ client.on("message", async message => {
   // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
 
-
-  if(message.content.toLowerCase().includes("lian") || message.content.toLowerCase().includes("liar") || message.content.toLowerCase().includes("john") || message.content.toLowerCase().includes("korsunsky") || message.content.toLowerCase().includes("physics") || message.content.toLowerCase().includes("sausage")
-    || message.content.toLowerCase().includes("friction") || message.content.toLowerCase().includes("schist") || message.content.toLowerCase().includes("heck") || message.content.toLowerCase().includes("beach") || message.content.toLowerCase().includes("feck")) {
-    message.channel.send("Bry does not condone that foul language on his good Bryrish server.")
-  }
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+
+  for(var i = 0; i < args.length; i++) {
+    for(var j = 0; j < censors.length; j++) {
+      if(args[i].toLowerCase === censors[j]) {
+        message.channel.send("Bry does not condone that foul language on his good Bryrish server.");
+        return;
+      }
+    }
+  }
+
+  const command = args.shift().toLowerCase();
+
   if(message.content.substring(0, config.prefix.length) !== config.prefix) return;
 
   if(message.author.username.includes("#6046")) {
@@ -64,8 +73,6 @@ client.on("message", async message => {
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
   // command = say
   // args = ["Is", "this", "the", "real", "life?"]
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
 
   if(command === "eat") {
     const m = await message.channel.send("```\n   BRY   " + args[0] + "\n   C  \\o/\n```");
