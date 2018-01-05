@@ -47,7 +47,7 @@ client.on("message", async message => {
   // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
 
-  if(message.author.contains("#6046")) {
+  if(message.author.username.includes("#6046")) {
     message.channel.send("no1 likes john");
     return;
   }
