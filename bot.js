@@ -40,7 +40,7 @@ client.on("guildDelete", guild => {
 
 client.on("message", async message => {
 
-  if(message.channel.name.includes(config.nochannel) return;
+  if(message.channel.name.includes(config.nochannel)) return;
   // This event will run on every single message received, from any channel or DM.
 
   // It's good practice to ignore other bots. This also makes your bot ignore itself
@@ -49,14 +49,15 @@ client.on("message", async message => {
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
-  args = message.content.split("/ ");
-  args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  var args = message.content.split(/ +/g);
 
   for(var i = 0; i < config.censors.length; i++) {
-    if(args.indexOf(config.censors[i]) !== 0) {
+    console.log(args);
+    if(args.indexOf(config.censors[i]) !== -1) {
       message.channel.send("Bry does not condone this foul language on his good Bryrish server.");
     }
   }
+  args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 
   const command = args.shift().toLowerCase();
 

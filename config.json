@@ -1,6 +1,6 @@
 { "token"  : "Mzk1Nzg2MzI2MDU5Nzc4MDQ5.DSbr_Q.Vs1OsDraaFXXm5EyaOS81w-WhzM",
-  "prefix" : "Brybot,"
-  "censors" : ["lian","liar","john","korsunsky","physics","sausage","friction","schist","heck","beach","feck"]
-  "words" : ["phat","no1 cares","idk","u","hax","majik","phatrabbits","chicken hugget"]
+  "prefix" : "Brybot,",
+  "censors" : ["lian","liar","john","korsunsky","physics","sausage","friction","schist","heck","beach","feck"],
+  "words" : ["phat","no1 cares","idk","u","hax","majik","phatrabbits","chicken hugget"],
   "nochannel" : "xb"
 }
