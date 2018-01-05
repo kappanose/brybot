@@ -50,11 +50,12 @@ client.on("message", async message => {
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  args = message.content.split("/ ");
+  args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 
   for(var i = 0; i < args.length; i++) {
     for(var j = 0; j < censors.length; j++) {
-      if(args[i].toLowerCase === censors[j]) {
+      if(args[i].toLowerCase == censors[j]) {
         message.channel.send("Bry does not condone that foul language on his good Bryrish server.");
         return;
       }
