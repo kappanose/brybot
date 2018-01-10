@@ -67,10 +67,6 @@ client.on("message", async message => {
 
   if(message.content.substring(0, config.prefix.length) !== config.prefix) return;
 
-  if(message.author.username.includes("#6046")) {
-    message.channel.send("no1 likes john");
-    return;
-  }
   // Here we separate our "command" name, and our "arguments" for the command.
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
   // command = say
