@@ -49,10 +49,14 @@ client.on("message", async message => {
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
+
+  if(message.content.toLowerCase().indexOf("best thing i") != -1 && message.content.toLowerCase().indexOf("seen") != -1) {
+    message.channel.send("You don't look in the mirror much, do you?");
+  }
+
   var args = message.content.split(/ +/g);
 
   for(var i = 0; i < config.censors.length; i++) {
-    console.log(args);
     if(args.indexOf(config.censors[i]) !== -1) {
       message.channel.send("Bry does not condone this foul language on his good Bryrish server.");
     }
@@ -72,8 +76,6 @@ client.on("message", async message => {
   // command = say
   // args = ["Is", "this", "the", "real", "life?"]
 
-  if(command === "")
-
   if(command === "eat") {
     const m = await message.channel.send("```\n   BRY   " + args[0] + "\n   C  \\o/\n```");
     await sleep(500);
@@ -90,6 +92,24 @@ client.on("message", async message => {
     food++;
     m.edit("```\n     BRY " + "burp..." + "\n         C\nBry has eaten " + food + " times.``` ");
     lastDate = newDate();
+  }
+
+  if(command === "pickup") {
+    var id = Math.random();
+    id = config.pickups.length * id;
+    id = id - id%1;
+    var line = config.pickups[id];
+    var lines = line.split("BRYBOTSEP");
+    var m = "";
+    if(args.length != 0) {
+      m = args[0] + ", ";
+    }
+    for(var i = 0; i < lines.length; i++) {
+      m += lines[i]
+      message.channel.send(m);
+      await sleep(config.pwait);
+      m = "";
+    }
   }
 
   if(command === "lennybomb") {
