@@ -151,7 +151,7 @@ client.on("message", async message => {
     id = config.roasts.length * id;
     id = id - id%1;
     if (args.length == 0) args.push(message.author);
-    message.channel.send(args[0] + roasts[id]);
+    message.channel.send(args[0] + config.roasts[id]);
   }
 
   if(command === "die") {
