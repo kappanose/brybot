@@ -73,9 +73,10 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
 
   if(command === "eat") {
-    const m = await message.channel.send("```\n   BRY   " + args[0] + "\n   C  \\o/\n```");
+    const n = args.join(" ");
+    const m = await message.channel.send("```\n   BRY   " + n + "\n   C  \\o/\n```");
     await sleep(500);
-    m.edit("```\n    BRY  " + args[0] + "\n    c \\o/\n```");
+    m.edit("```\n    BRY  " + n + "\n    c \\o/\n```");
     await sleep(500);
     m.edit("```\n     BRY " + "\n     C\\o/\n```");
     await sleep(500);
@@ -125,13 +126,14 @@ client.on("message", async message => {
   }
 
   if(command === "siton") {
-    const m = await message.channel.send("```Bry sits on " + args[0] + "\n C\n\n\n\\o/ - " + args[0] + "```");
+    const n = args.join(" ");
+    const m = await message.channel.send("```Bry sits on " + n + "\n C\n\n\n\\o/ - " + n + "```");
     await sleep(500);
-    m.edit("```Bry sits on " + args[0] + "\n\n C\n\n\\o/ - " + args[0] + "```");
+    m.edit("```Bry sits on " + n + "\n\n C\n\n\\o/ - " + n + "```");
     await sleep(500);
-    m.edit("```Bry sits on " + args[0] + "\n\n\n C\n\\o/ - " + args[0] + "```");
+    m.edit("```Bry sits on " + n + "\n\n\n C\n\\o/ - " + n + "```");
     await sleep(500);
-    m.edit("```Bry sits on " + args[0] + "\n\n\n\n\\C/ - oof```");
+    m.edit("```Bry sits on " + n + "\n\n\n\n\\C/ - oof```");
     await sleep(500);
   }
   // Let's go with a few common example commands! Feel free to delete or change those.
