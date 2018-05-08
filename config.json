@@ -2,7 +2,8 @@
   "prefix" : "Brybot,",
   "censors" : ["korsunsky","physics","sausage","friction","schist","heck","beach","feck"],
   "words" : ["phat","no1 cares","idk","u","hax","majik","phatrabbits","chicken hugget"],
-  "ynwords" : ["is","are","will","can","should","would","am","do","does","were","was","did","have","could"],
+  "ynwords" : ["is","are","will","can","should","would","am","do","does","were","was","did","have","could",
+    "shouldnt","doesnt","wont","wouldnt","wasnt","werent"],
   "qwords" : ["what","who","how","which","why"],
   "roasts" : [" is phat"," is ded"," is a dednugget"," is a phatnugget"," is a nougat", " died"," urphat"," asdf"],
   "pickups" : [
