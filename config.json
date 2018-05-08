@@ -1,0 +1,18 @@
+{ "token"  : "Mzk1Nzg2MzI2MDU5Nzc4MDQ5.DSbr_Q.Vs1OsDraaFXXm5EyaOS81w-WhzM",
+  "prefix" : "Brybot,",
+  "censors" : ["korsunsky","physics","sausage","friction","schist","heck","beach","feck"],
+  "words" : ["phat","no1 cares","idk","u","hax","majik","phatrabbits","chicken hugget"],
+  "ynwords" : ["is","are","will","can","should","would","am","do","does"],
+  "qwords" : ["what","who","how","which","why"],
+  "roasts" : [" is phat"," is ded"," is a dednugget"," is a phatnugget"," is a nougat", " died"," urphat"," asdf"],
+  "pickups" : [
+    "What if I told you... BRYBOTSEP You were SO hot BRYBOTSEP I could BRY an egg on your face!",
+    "Can you show me where the science wing is? BRYBOTSEP Because I think we have chemistry together!",
+    "Are you a 90 degree angle? BRYBOTSEP Because you're looking just right!",
+    "Are you the sun BRYBOTSEP Because you're brytenting up my day!",
+    "If I had a Bry for every time I thought of you... BRYBOTSEP I'd have one because you're always on my mind!",
+    "I used to think that happiness started with an h... BRYBOTSEP But now I know it starts with U!"
+  ],
+  "pwait" : 2000,
+  "nochannel" : "xb"
+}
