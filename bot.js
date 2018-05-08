@@ -137,7 +137,16 @@ client.on("message", async message => {
   }
 
   if(command === "roast") {
-    var id = Math.random();
+    var id = 42;
+    var args1 = args;
+    if (!isNaN(parseInt(args[0])) && parseInt(args[0]) < config.roasts.length) {
+      id = parseInt(args[0]);
+      args1 = args.slice(1,args.length);
+    } else {
+      id = Math.random();
+      id = config.roasts.length * id;
+      id = id - id%1;
+    }
     id = config.roasts.length * id;
     id = id - id%1;
     if (args.length == 0) args.push(message.author);
