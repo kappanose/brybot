@@ -84,14 +84,21 @@ client.on("message", async message => {
   }
 
   if(command === "pickup") {
-    var id = Math.random();
-    id = config.pickups.length * id;
-    id = id - id%1;
+    var id = 42;
+    var args1 = args;
+    if (!isNaN(parseInt(args[0])) && parseInt(args[0]) < config.pickups.length) {
+      id = parseInt(args[0]);
+      args1 = args.slice(1,args.length);
+    } else {
+      id = Math.random();
+      id = config.pickups.length * id;
+      id = id - id%1;
+    }
     var line = config.pickups[id];
     var lines = line.split("BRYBOTSEP");
     var m = "";
-    if(args.length != 0) {
-      m = args[0] + ", ";
+    if(args1.length != 0) {
+      m = args1.join(" ") + ", ";
     }
     for(var i = 0; i < lines.length; i++) {
       m += lines[i]
