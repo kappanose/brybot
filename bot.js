@@ -37,23 +37,18 @@ client.on("message", async message => {
   
   if(message.channel.name.includes(config.nochannel)) return;
   
-  
-  if(message.content.toLowerCase().indexOf("best thing i") != -1 && message.content.toLowerCase().indexOf("seen") != -1) {
-    message.channel.send("You don't look in the mirror much, do you?");
-  }
-
-  if(message.content.indexOf(config.prefix) !== 0) return;
-
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   
   const command = args.shift().toLowerCase().replace(/[^a-z0-9]/g, '');
-  
+   
   for(var i = 0; i < config.censors.length; i++) {
-    if(args.indexOf(config.censors[i]) != -1) {
+    if(message.content.indexOf(config.censors[i]) != -1) {
       message.channel.send("Bry does not condone this foul language on his good Bryrish server.");
     }
   }
   
+  if(message.content.indexOf(config.prefix) !== 0) return;
+
   if(command === "ping") {
     const m = await message.channel.send("Ping?");
     m.edit("Bry has ponged with a latency of ${m.createdTimestamp - message.createdTimestamp}ms.");
