@@ -109,7 +109,9 @@ client.on("message", async message => {
   }
 
   if(config.ynwords.includes(command)) {
-    if (Math.random() > 0.5) {
+    if (message.content.indexOf("bloat") != -1) {
+      message.channel.send("If you're asking if something is bloat, it probably is.");
+    } else if (Math.random() > 0.5) {
       message.channel.send("no");
     } else {
       message.channel.send("yes");
