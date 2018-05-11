@@ -1,0 +1,31 @@
+{ 
+  "John sux"  : "Nice try, Johnny.",
+  "prefix" : "Brybot,",
+  "censors" : ["korsunsky","physics","sausage","friction","schist","heck","beach","feck"],
+  "words" : ["phat","no1 cares","idk","u","hax","majik","phatrabbits","chicken hugget"],
+  "ynwords" : ["is","are","will","can","should","would","am","do","does","were","was","did","have","could",
+    "shouldnt","doesnt","wont","wouldnt","wasnt","werent"],
+  "qwords" : ["what","who","how","which","why","whats","where","when"],
+  "roasts" : [" is phat",
+    " is ded",
+    " is a dednugget",
+    " is a phatnugget",
+    " is a nougat",
+    " died",
+    " urphat",
+    " asdf",
+    " is a buddybuddhabear"
+  ],
+  "pickups" : [
+    "What if I told you... BRYBOTSEP You were SO hot BRYBOTSEP I could BRY an egg on your face!",
+    "Can you show me where the science wing is? BRYBOTSEP Because I think we have chemistry together!",
+    "Are you a 90 degree angle? BRYBOTSEP Because you're looking just right!",
+    "Are you the sun BRYBOTSEP Because you're brytenting up my day!",
+    "If I had a Bry for every time I thought of you... BRYBOTSEP I'd have one because you're always on my mind!",
+    "I used to think that happiness started with an h... BRYBOTSEP But now I know it starts with U!",
+    "Are you a lazer fish? BRYBOTSEP Because you're absolutely shocking!"
+  ],
+  "pwait" : 2000,
+  "nochannel" : "xb",
+  "resultsPerPage" : 5
+}
