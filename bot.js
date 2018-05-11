@@ -60,6 +60,35 @@ client.on("message", async message => {
     message.channel.send(sayMessage);
   } 
 
+if(command === "cox") {
+    var id = Math.random();
+    id = 10 * id;
+    id = id - id%1;
+    if (args.length == 0) args.push(message.author);
+    if (id == 9) {
+      message.channel.send("Stern 4, at the finish");
+    } else if (id == 8) {
+      message.channel.send("BOW SEAT!!!! SET THE BOAT!!!!!");
+    } else if (id == 7) {
+      message.channel.send("WHAT ARE YOU DOING!!?!?");
+    } else if (id == 6) {
+      message.channel.send("More pressure on port.");
+    } else if (id == 5) {
+      message.channel.send("Way enough.");
+    } else if (id == 4) {
+      message.channel.send("In two, power ten!");
+    } else if (id == 3) {
+      message.channel.send("Ready all, row.");
+    } else if (id == 2) {
+      message.channel.send("VINCENT WHAT ARE YOU DOING!?!?!?!");
+    } else if (id == 1) {
+      message.channel.send("licka my cox box");
+    } else {
+      message.channel.send("More starboard pressure.");
+    }
+  }
+
+
   if(command === "eat") {
     const n = args.join(" ");
     const m = await message.channel.send("```\n   BRY   " + n + "\n   C  \\o/\n```");
