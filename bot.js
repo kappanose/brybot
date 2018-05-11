@@ -10,7 +10,7 @@ const client = new Discord.Client();
 var food = 0;
 
 const config = require("./config.json");
-const token = require("../token.json");
+const token = require("./token.json");
 
 google.resultsPerPage = config.resultsPerPage;
 

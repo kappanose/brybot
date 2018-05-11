@@ -1,0 +1,20 @@
+{
+  "name": "brybot",
+  "version": "4.2.0",
+  "description": "Brybot!",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "google": "^2.1.0",
+    "npm": "^6.0.1"
+  },
+  "engines": {
+    "node": "10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kappanose",
+  "license": "ISC"
+}

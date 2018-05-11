@@ -1,1 +1,1 @@
-worker: node brybot/bot.js
+worker: node bot.js
