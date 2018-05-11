@@ -66,11 +66,11 @@ if(command === "cox") {
     id = id - id%1;
     if (args.length == 0) args.push(message.author);
     if (id == 9) {
-      message.channel.send("Stern 4, at the finish");
+      message.channel.send("Stern four, at the finish");
     } else if (id == 8) {
-      message.channel.send("BOW SEAT!!!! SET THE BOAT!!!!!");
+      message.channel.send("Bow four, set the boat.");
     } else if (id == 7) {
-      message.channel.send("WHAT ARE YOU DOING!!?!?");
+      message.channel.send("In two, focus slide.");
     } else if (id == 6) {
       message.channel.send("More pressure on port.");
     } else if (id == 5) {
@@ -80,9 +80,9 @@ if(command === "cox") {
     } else if (id == 3) {
       message.channel.send("Ready all, row.");
     } else if (id == 2) {
-      message.channel.send("VINCENT WHAT ARE YOU DOING!?!?!?!");
+      message.channel.send("In two, add in five and six.");
     } else if (id == 1) {
-      message.channel.send("licka my cox box");
+      message.channel.send("VINCENT!!! WHAT ARE YOU DOING?!?!?");
     } else {
       message.channel.send("More starboard pressure.");
     }
