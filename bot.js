@@ -134,6 +134,11 @@ client.on("message", async message => {
     await sleep(500);
   }
 
+
+if(command === "sudo") {
+    message.channel.send("i use arch btw");
+  }
+
   if(command === "roast") {
     var id = 42;
     var args1 = args;
