@@ -1,3 +1,5 @@
+// HI JOHN
+
 const Discord = require("discord.js");
 const google = require('google');
 
@@ -51,7 +53,7 @@ client.on("message", async message => {
       message.channel.send("Bry does not condone this foul language on his good Bryrish server.");
     }
   }
-  
+
   if(message.content.indexOf(config.prefix) !== 0) return;
   
   if(command === "tellme") {
@@ -60,7 +62,7 @@ client.on("message", async message => {
     google(args.join(" "), function(err, res) {
       if (err) console.error(err);
       for(var i = 0; i < google.resultsPerPage; i++) {
-	if (res.links[i] !== null) {
+	if (res.links[i] !== null && res.links[i].description !== null) {
 	  k.push(res.links[i].title);
 	  k.push(res.links[i].description);
 	  message.channel.send(res.links[i].title + "\n" + res.links[i].href);
@@ -175,8 +177,22 @@ client.on("message", async message => {
     if (args1.length == 0) args1.push(message.author);
     message.channel.send(args1.join(" ") + config.roasts[id]);
   }
+  
+  if(command === "cox") {
+    var id = 42;
+    var args1 = args;
+    if (!isNaN(parseInt(args[0])) && parseInt(args[0]) < config.coxes.length) {
+      id = parseInt(args[0]);
+      args1 = args.slice(1,args.length);
+    } else {
+      id = Math.random();
+      id = config.coxes.length * id;
+      id = id - id%1;
+    }
+    message.channel.send(config.coxes[id]);
+  }
 
-  if(command === "die") {
+  if(command === "die" || command === "stop") {
     message.channel.send("no");
   }
 
