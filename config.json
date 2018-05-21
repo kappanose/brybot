@@ -6,15 +6,18 @@
   "ynwords" : ["is","are","will","can","should","would","am","do","does","were","was","did","have","could",
     "shouldnt","doesnt","wont","wouldnt","wasnt","werent"],
   "qwords" : ["what","who","how","which","why","whats","where","when"],
-  "roasts" : [" is phat",
+  "roasts" : [
+    " no",
     " is ded",
     " is a dednugget",
     " is a phatnugget",
     " is a nougat",
     " died",
-    " urphat",
+    " is ugly",
     " asdf",
-    " is a buddybuddhabear"
+    " is a buddybuddhabear",
+    " SET THE BOAT!",
+    " stop"
   ],
   "pickups" : [
     "What if I told you... BRYBOTSEP You were SO hot BRYBOTSEP I could BRY an egg on your face!",
@@ -38,6 +41,10 @@
     "More starboard pressure."
   ],
   "pwait" : 2000,
+  "reacts" : [
+    ["🐟","birthday","bday","bird day"],
+    ["","fish"]
+  ],
   "nochannel" : "xb",
   "resultsPerPage" : 5
 }

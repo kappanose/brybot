@@ -36,6 +36,15 @@ client.on("guildDelete", guild => {
 
 
 client.on("message", async message => {
+  
+  for(var i = 0; i < config.reacts.length; i++) {
+    for(var j = 1; j < config.reacts[i].length; j++) {
+      if(message.content.toLowerCase().indexOf(config.reacts[i][j] !== -1)) {
+	message.react(config.reacts[i][0]);
+	console.log(i + ", " + j);
+      }
+    }
+  }
 
   if(message.author.bot) return;
   
@@ -56,6 +65,12 @@ client.on("message", async message => {
 
   if(message.content.indexOf(config.prefix) !== 0) return;
   
+  if(command === "bday") {
+    const n = args.join(" ");
+    message.delete().catch(O_o=>{});
+    message.channel.send(message.author + " would like to wish " + n + " a happy bird day.");
+  }
+
   if(command === "tellme") {
     var m = "Your lord has found the following information on your request";
     var k = [];
@@ -79,7 +94,7 @@ client.on("message", async message => {
 
   if(command === "ping") {
     const m = await message.channel.send("Ping?");
-    m.edit("Bry has ponged with a latency of ${m.createdTimestamp - message.createdTimestamp}ms.");
+    m.edit("Bry has ponged.");
   }
   
   if(command === "say") {
