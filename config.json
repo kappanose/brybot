@@ -42,8 +42,8 @@
   ],
   "pwait" : 2000,
   "reacts" : [
-    ["🐟","birthday","bday","bird day"],
-    ["","fish"]
+    ["🎂","birthday","bday","bird day"],
+    ["🐟","fish"]
   ],
   "nochannel" : "xb",
   "resultsPerPage" : 5

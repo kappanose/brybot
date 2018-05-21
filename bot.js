@@ -68,7 +68,7 @@ client.on("message", async message => {
   if(command === "bday") {
     const n = args.join(" ");
     message.delete().catch(O_o=>{});
-    message.channel.send(message.author + " would like to wish " + n + " a happy bird day.");
+    message.channel.send(message.author + " would like to wish " + n + " a happy bird day. http://itsyourbirthday.today/#" + n);
   }
 
   if(command === "tellme") {
@@ -122,11 +122,10 @@ client.on("message", async message => {
     lastDate = newDate();
   }
 
-if(command === "bday") {
+  if(command === "bday") {
     if (args.length == 0) args.push(message.author);
     message.channel.send("http://itsyourbirthday.today/#" + args[0]);
   }
-
 
   if(command === "pickup") {
     var id = 42;
