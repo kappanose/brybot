@@ -107,6 +107,12 @@ client.on("message", async message => {
     lastDate = newDate();
   }
 
+if(command === "bday") {
+    if (args.length == 0) args.push(message.author);
+    message.channel.send("http://itsyourbirthday.today/#" + args[0]);
+  }
+
+
   if(command === "pickup") {
     var id = 42;
     var args1 = args;
