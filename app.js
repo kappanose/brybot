@@ -9,8 +9,6 @@ function sleep(millis) {
 
 const client = new Discord.Client();
 
-var food = 0;
-
 const config = require("./config.json");
 const token = require("./token.json");
 
@@ -63,7 +61,22 @@ client.on("message", async message => {
   }
 
   if (message.content.indexOf(config.prefix) !== 0) return;
-  
+
+  for (var i = 0; i < config.asciis.length; i++) {
+    var arr = config.asciis[i];
+    var word = arr.shift();
+    var time = arr.shift();
+    if (command === word) {
+      const n = args.join(" ");
+      const m = await message.channel.send(arr[0].replace("BRYBOTSEP", n));
+      await sleep(time);
+      for (var i = 1; i < arr.length; i++) {
+	m.edit(arr[i].replace("BRYBOTSEP", n));
+	await sleep(time);
+      }
+    }
+  }
+
   if (command === "calculate") {
     if (args.join(" ").indexOf("token.token") !== -1) { // No, Johnny.
       message.channel.send("You disgust Lord Bry with your belligerent actions.");
@@ -115,25 +128,6 @@ client.on("message", async message => {
     message.channel.send(sayMessage);
   } 
 
-  if (command === "eat") {
-    const n = args.join(" ");
-    const m = await message.channel.send("```\n   BRY   " + n + "\n   C  \\o/\n```");
-    await sleep(500);
-    m.edit("```\n    BRY  " + n + "\n    c \\o/\n```");
-    await sleep(500);
-    m.edit("```\n     BRY " + "\n     C\\o/\n```");
-    await sleep(500);
-    m.edit("```\n     BRY " + "\n      Co/\n```");
-    await sleep(500);
-    m.edit("```\n     BRY " + "\n       c/\n```");
-    await sleep(500);
-    m.edit("```\n     BRY " + "\n        C\n```");
-    await sleep(500);
-    food++;
-    m.edit("```\n     BRY " + "burp..." + "\n         C\nBry has eaten " + food + " times.``` ");
-    lastDate = newDate();
-  }
-
   if (command === "bday") {
     if (args.length == 0) args.push(message.author);
     message.channel.send("http://itsyourbirthday.today/#" + args[0]);
@@ -180,18 +174,6 @@ client.on("message", async message => {
 
   if (config.qwords.includes(command)) {
     message.channel.send(config.words[parseInt(Math.random() * config.words.length)]);
-  }
-
-  if (command === "siton") {
-    const n = args.join(" ");
-    const m = await message.channel.send("```Bry sits on " + n + "\n C\n\n\n\\o/ - " + n + "```");
-    await sleep(500);
-    m.edit("```Bry sits on " + n + "\n\n C\n\n\\o/ - " + n + "```");
-    await sleep(500);
-    m.edit("```Bry sits on " + n + "\n\n\n C\n\\o/ - " + n + "```");
-    await sleep(500);
-    m.edit("```Bry sits on " + n + "\n\n\n\n\\C/ - oof```");
-    await sleep(500);
   }
 
   if (command === "roast") {

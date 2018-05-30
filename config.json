@@ -46,5 +46,22 @@
     ["🐟","fish"]
   ],
   "nochannel" : "xb",
-  "resultsPerPage" : 5
+  "resultsPerPage" : 5,
+  "asciis" : [
+    ["eat", 450,
+      "```\n   BRY   BRYBOTSEP\n   C  \\o/\n```",
+      "```\n    BRY  BRYBOTSEP\n    c \\o/\n```",
+      "```\n     BRY BRYBOTSEP\n     C\\o/\n```",
+      "```\n     BRY BRYBOTSEP\n      Co/\n```",
+      "```\n     BRY BRYBOTSEP\n       c/\n```",
+      "```\n     BRY BRYBOTSEP\n        C\n```",
+      "```\n     BRY WHAT USED TO BE BRYBOTSEP\n         C\n          burp...```"
+    ],
+    ["siton", 450,
+      "```Bry sits on BRYBOTSEP\n C\n\n\n\\o/ - BRYBOTSEP ```",
+      "```Bry sits on BRYBOTSEP\n\n C\n\n\\o/ - BRYBOTSEP ```",
+      "```Bry sits on BRYBOTSEP\n\n\n C\n\\o/ - BRYBOTSEP ```",
+      "```Bry sits on BRYBOTSEP\n\n\n\n\\C/ - oof ```"
+    ]
+  ]
 }
