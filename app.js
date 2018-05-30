@@ -70,12 +70,9 @@ client.on("message", async message => {
     } else {
       try {
 	eval(args.join(" "));
+	message.channel.send("Bry has blessed you with his holy knowledge, and proclaims that your answer is " + eval(args.join(" ")) + ".");
       } catch (e) {
-	if (e instanceof SyntaxError) {
-	  message.channel.send("Bry cannot comprehend your primitive speech pattern.");
-	} else {
-	  message.channel.send("Bry has blessed you with his holy knowledge, and proclaims that your answer is " + eval(args.join(" ")) + ".");
-	}
+        message.channel.send("Bry cannot comprehend your primitive speech pattern.");
       }
     }
   }
