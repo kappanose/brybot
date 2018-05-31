@@ -64,13 +64,13 @@ client.on("message", async message => {
 
   for (var i = 0; i < config.asciis.length; i++) {
     var arr = config.asciis[i];
-    var word = arr.shift();
-    var time = arr.shift();
+    var word = arr[0];
+    var time = arr[1];
     if (command === word) {
       const n = args.join(" ");
-      const m = await message.channel.send(arr[0].replace("BRYBOTSEP", n));
+      const m = await message.channel.send(arr[2].replace("BRYBOTSEP", n));
       await sleep(time);
-      for (var i = 1; i < arr.length; i++) {
+      for (var i = 3; i < arr.length; i++) {
 	m.edit(arr[i].replace("BRYBOTSEP", n));
 	await sleep(time);
       }
