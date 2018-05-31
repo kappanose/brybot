@@ -73,6 +73,15 @@
       "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~~~~~\n~~\"C\"~~\n~~~~~~~\n\"\"\"\"\"\"\"\n O   O\n |/ \\|\n |   |\n M   M```",
       "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~~~~~\n~~\"c\"~~\n~~~~~~~\n\"\"\"\"\"\"\"\n O   O\n |/ \\|\n |   |\n M   M```",
       "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~~~~~\n~~\"C\"~~\n~~~~~~~\n\"\"\"\"\"\"\"\n O   O\n |/ \\|\n |   |\n M   M```"
+    ],
+    ["succ", 450,
+      "```\n   BRY   BRYBOTSEP\n   C  \\o/\n```",
+      "```\n   BRY  BRYBOTSEP\n   c \\o/\n```",
+      "```\n   BRY BRYBOTSEP\n   C\\o/\n```",
+      "```\n   BRY BRYBOTSEP\n   co/\n```",
+      "```\n   BRY BRYBOTSEP\n   C/\n```",
+      "```\n   BRY BRYBOTSEP\n   c\n```",
+      "```\n   BRY WHAT USED TO BE BRYBOTSEP\n         C\n          lick...```"
     ]
   ]
 }
