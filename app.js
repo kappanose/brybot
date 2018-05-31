@@ -9,15 +9,12 @@ function sleep(millis) {
 
 const client = new Discord.Client();
 
-var food = 0;
-
 const config = require("./config.json");
 const token = require("./token.json");
 
 google.resultsPerPage = config.resultsPerPage;
 
 client.on("ready", () => {
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
   client.user.setActivity(`Being Bry`);
 });
@@ -36,32 +33,75 @@ client.on("guildDelete", guild => {
 
 
 client.on("message", async message => {
+  
+  for (var i = 0; i < config.reacts.length; i++) {
+    for (var j = 1; j < config.reacts[i].length; j++) {
+      if (message.content.toLowerCase().indexOf(config.reacts[i][j]) !== -1) {
+	message.react(config.reacts[i][0]);
+	console.log(i + ", " + j);
+      }
+    }
+  }
 
-  if(message.author.bot) return;
+  if (message.author.bot) return;
   
   // command = say
-  // args = ["Is", "this", "the", "real", "life?"]
+  // args = ["no", "u", "asdf"]
   
-  if(message.channel.name.includes(config.nochannel)) return;
+  if (message.channel.name.includes(config.nochannel)) return;
   
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   
   const command = args.shift().toLowerCase().replace(/[^a-z0-9]/g, '');
    
-  for(var i = 0; i < config.censors.length; i++) {
-    if(message.content.indexOf(config.censors[i]) != -1) {
+  for (var i = 0; i < config.censors.length; i++) {
+    if (message.content.indexOf(config.censors[i]) != -1) {
       message.channel.send("Bry does not condone this foul language on his good Bryrish server.");
     }
   }
 
-  if(message.content.indexOf(config.prefix) !== 0) return;
-  
-  if(command === "tellme") {
+  if (message.content.indexOf(config.prefix) !== 0) return;
+
+  for (var i = 0; i < config.asciis.length; i++) {
+    var arr = config.asciis[i];
+    var word = arr[0];
+    var time = arr[1];
+    if (command === word) {
+      const n = args.join(" ");
+      const m = await message.channel.send(arr[2].replace("BRYBOTSEP", n));
+      await sleep(time);
+      for (var i = 3; i < arr.length; i++) {
+	m.edit(arr[i].replace("BRYBOTSEP", n));
+	await sleep(time);
+      }
+    }
+  }
+
+  if (command === "calculate") {
+    if (args.join(" ").indexOf("token.token") !== -1) { // No, Johnny.
+      message.channel.send("You disgust Lord Bry with your belligerent actions.");
+    } else {
+      try {
+	eval(args.join(" "));
+	message.channel.send("Bry has blessed you with his holy knowledge, and proclaims that your answer is " + eval(args.join(" ")) + ".");
+      } catch (e) {
+        message.channel.send("Bry cannot comprehend your primitive speech pattern.");
+      }
+    }
+  }
+
+  if (command === "bday") {
+    const n = args.join(" ");
+    message.delete().catch(O_o=>{});
+    message.channel.send(message.author + " would like to wish " + n + " a happy bird day." + " http://itsyourbirthday.today/#" + n);
+  }
+
+  if (command === "tellme") {
     var m = "Your lord has found the following information on your request";
     var k = [];
     google(args.join(" "), function(err, res) {
       if (err) console.error(err);
-      for(var i = 0; i < google.resultsPerPage; i++) {
+      for (var i = 0; i < google.resultsPerPage; i++) {
 	if (res.links[i] !== null && res.links[i].description !== null) {
 	  k.push(res.links[i].title);
 	  k.push(res.links[i].description);
@@ -70,50 +110,30 @@ client.on("message", async message => {
       }
     });
     console.log(k);
-    for(var i = 0; i < k.length; i++) {
+    for (var i = 0; i < k.length; i++) {
       m += k[i];
     }
     console.log(m);
     message.channel.send(m);
   }
 
-  if(command === "ping") {
+  if (command === "ping") {
     const m = await message.channel.send("Ping?");
-    m.edit("Bry has ponged with a latency of ${m.createdTimestamp - message.createdTimestamp}ms.");
+    m.edit("Bry has ponged.");
   }
   
-  if(command === "say") {
+  if (command === "say") {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
     message.channel.send(sayMessage);
   } 
 
-  if(command === "eat") {
-    const n = args.join(" ");
-    const m = await message.channel.send("```\n   BRY   " + n + "\n   C  \\o/\n```");
-    await sleep(500);
-    m.edit("```\n    BRY  " + n + "\n    c \\o/\n```");
-    await sleep(500);
-    m.edit("```\n     BRY " + "\n     C\\o/\n```");
-    await sleep(500);
-    m.edit("```\n     BRY " + "\n      Co/\n```");
-    await sleep(500);
-    m.edit("```\n     BRY " + "\n       c/\n```");
-    await sleep(500);
-    m.edit("```\n     BRY " + "\n        C\n```");
-    await sleep(500);
-    food++;
-    m.edit("```\n     BRY " + "burp..." + "\n         C\nBry has eaten " + food + " times.``` ");
-    lastDate = newDate();
-  }
-
-if(command === "bday") {
+  if (command === "bday") {
     if (args.length == 0) args.push(message.author);
     message.channel.send("http://itsyourbirthday.today/#" + args[0]);
   }
 
-
-  if(command === "pickup") {
+  if (command === "pickup") {
     var id = 42;
     var args1 = args;
     if (!isNaN(parseInt(args[0])) && parseInt(args[0]) < config.pickups.length) {
@@ -127,10 +147,10 @@ if(command === "bday") {
     var line = config.pickups[id];
     var lines = line.split("BRYBOTSEP");
     var m = "";
-    if(args1.length != 0) {
+    if (args1.length != 0) {
       m = args1.join(" ") + ", ";
     }
-    for(var i = 0; i < lines.length; i++) {
+    for (var i = 0; i < lines.length; i++) {
       m += lines[i]
       message.channel.send(m);
       await sleep(config.pwait);
@@ -142,8 +162,7 @@ if(command === "bday") {
     message.channel.send("Bry has detonated a Lennybomb: ( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)( ͡° ͜ʖ ͡°)");
   }
 
-  if(config.ynwords.includes(command)) {
-    
+  if (config.ynwords.includes(command)) {    
     if (message.content.indexOf("bloat") != -1) {
         message.channel.send("Brybot believes that if you are asking if something is bloat, it probably is.");
     } else if (Math.random() > 0.5) {
@@ -153,23 +172,11 @@ if(command === "bday") {
     }
   }
 
-  if(config.qwords.includes(command)) {
+  if (config.qwords.includes(command)) {
     message.channel.send(config.words[parseInt(Math.random() * config.words.length)]);
   }
 
-  if(command === "siton") {
-    const n = args.join(" ");
-    const m = await message.channel.send("```Bry sits on " + n + "\n C\n\n\n\\o/ - " + n + "```");
-    await sleep(500);
-    m.edit("```Bry sits on " + n + "\n\n C\n\n\\o/ - " + n + "```");
-    await sleep(500);
-    m.edit("```Bry sits on " + n + "\n\n\n C\n\\o/ - " + n + "```");
-    await sleep(500);
-    m.edit("```Bry sits on " + n + "\n\n\n\n\\C/ - oof```");
-    await sleep(500);
-  }
-
-  if(command === "roast") {
+  if (command === "roast") {
     var id = 42;
     var args1 = args;
     if (!isNaN(parseInt(args[0])) && parseInt(args[0]) < config.roasts.length) {
@@ -184,7 +191,7 @@ if(command === "bday") {
     message.channel.send(args1.join(" ") + config.roasts[id]);
   }
   
-  if(command === "cox") {
+  if (command === "cox") {
     var id = 42;
     var args1 = args;
     if (!isNaN(parseInt(args[0])) && parseInt(args[0]) < config.coxes.length) {
@@ -198,7 +205,7 @@ if(command === "bday") {
     message.channel.send(config.coxes[id]);
   }
 
-  if(command === "die" || command === "stop") {
+  if (command === "die" || command === "stop") {
     message.channel.send("no");
   }
 
