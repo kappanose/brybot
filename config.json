@@ -62,6 +62,17 @@
       "```Bry sits on BRYBOTSEP\n\n C\n\n\\o/ - BRYBOTSEP ```",
       "```Bry sits on BRYBOTSEP\n\n\n C\n\\o/ - BRYBOTSEP ```",
       "```Bry sits on BRYBOTSEP\n\n\n\n\\C/ - oof ```"
+    ],
+    ["throw", "650",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~|~~~\n~~~|~~~\n~~~V~~~\n\"\"\"\"\"\"\"\n O C O\n |/ \\|\n |   |\n M   M```",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~|~~~\n~~~|~~~\n~~~V~~~\n\"\"\"\"\"\"\"\n O   O\n |_C_|\n |   |\n M   M```",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~|~~~\n~~~|~~~\n~~~V~~~\n\"\"\"\"\"\"\"\n O   O\n |   |\n |\\C/|\n M   M```",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~|~~~\n~~~|~~~\n~~~V~~~\n\"\"\"\"\"\"\"\n O   O\n |_C_|\n |   |\n M   M```",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~|~~~\n~~~|~~~\n~~~V~~~\n\"\"\"\"\"\"\"\n O C O\n |/ \\|\n |   |\n M   M```",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~~~~~\n~~~~~~~\n~~\"C\"~~\n\"\"\"\"\"\"\"\n O   O\n |/ \\|\n |   |\n M   M```",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~~~~~\n~~\"C\"~~\n~~~~~~~\n\"\"\"\"\"\"\"\n O   O\n |/ \\|\n |   |\n M   M```",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~~~~~\n~~\"c\"~~\n~~~~~~~\n\"\"\"\"\"\"\"\n O   O\n |/ \\|\n |   |\n M   M```",
+      "```java\n  BRYBOTSEP\n\"\"\"\"\"\"\"\n~~~~~~~\n~~\"C\"~~\n~~~~~~~\n\"\"\"\"\"\"\"\n O   O\n |/ \\|\n |   |\n M   M```"
     ]
   ]
 }
