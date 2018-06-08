@@ -78,7 +78,7 @@ client.on("message", async message => {
   }
 
   if (command === "calculate") {
-    if (args.join(" ").indexOf("token.token") !== -1) { // No, Johnny.
+    if (message.author !== "@Kappanose#3690" && (args.join(" ").indexOf("token.token") !== -1 || args.join(" ").indexOf("while") !== -1) || args.join(" ").indexOf("for") !== -1)) { // No, Johnny.
       message.channel.send("You disgust Lord Bry with your belligerent actions.");
     } else {
       try {
