@@ -78,8 +78,8 @@ client.on("message", async message => {
   }
 
   if (command === "calculate") {
-    if (message.author !== "@Kappanose#3690" && (args.join(" ").indexOf("token.token") !== -1 || args.join(" ").indexOf("while") !== -1 || args.join(" ").indexOf("for") !== -1)) { // No, Johnny.
-      message.channel.send("You disgust Lord Bry with your belligerent actions.");
+    if (message.author !== "@Kappanose#3690" && args.join(" ").match(/[a-z]/i)) { // No, Johnny.
+      message.channel.send("Bry cannot comprehend your primitive speech pattern.");
     } else {
       try {
 	eval(args.join(" "));
